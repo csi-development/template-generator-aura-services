@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 /*
  #  Project: your-awesome-project                                              #
  #  File: \index.js                                                            #
@@ -6,7 +8,7 @@
  #  Modified By: Sylvain (contact@cashsystemes.eu>)                            #
  #                                                                             #
  #  File Created: Friday, 26th July 2019 11:58:02 am                           #
- #  Last Modified: Friday, 26th July 2019 3:58:00 pm                           #
+ #  Last Modified: Friday, 26th July 2019 4:21:28 pm                           #
  #                                                                             #
  #  Copyright 2018 - 2019, Cash Systemes Industries                            #
  */
@@ -38,7 +40,8 @@ inquirer
         await modify_into_files(paths)
         paths = await get_paths()
         await prune(paths)
-    })
+
+    }).catch(err => console.error)
 
 
 
@@ -53,7 +56,8 @@ inquirer
 //  Copy l'integralité du dossier template
 let copy_folders = async () => {
     return new Promise((resolve, reject) => {
-        ncp('./template', './service-' + Answers.name, err => {
+        console.log(__dirname)
+        ncp(__dirname+'/template', './service-' + Answers.name, err => {
             if (err) reject(err)
             resolve()
         });
@@ -119,7 +123,6 @@ let modify_into_files = async paths => {
 let prune = async (paths) => {
     return new Promise((resolve, reject) => {
         for (const p of paths) {
-            // let fileName = path.basename("./" + p)
             let dirName = path.dirname("./" + p)
 
             // Analyse du folder

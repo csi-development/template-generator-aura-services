@@ -1,7 +1,8 @@
 {
   "name": "template-generator-aura",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
+  "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
@@ -11,6 +12,9 @@
     "ncp": "^2.0.0"
   },
   "devDependencies": {},
+  "bin": {
+    "aura-micro": "./index.js"
+  },
   "author": "",
   "license": "ISC"
 }

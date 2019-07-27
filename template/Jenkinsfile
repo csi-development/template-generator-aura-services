@@ -98,7 +98,7 @@ pipeline {
       }
       steps {
         container('nodejs') {
-          dir('./charts/service-ticket') {
+          dir('./charts/service-$service-name$') {
             sh "jx step changelog --batch-mode --version v\$(cat ../../VERSION)"
 
             // release the helm chart

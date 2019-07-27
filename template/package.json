@@ -9,7 +9,7 @@
     "start": "moleculer-runner services",
     "ci": "jest --watch",
     "test": "jest --coverage",
-    "integration_test": "mocha test/integration/articles.service.test --timeout 10000 --exit",
+    "integration_test": "mocha test/integration/$service-name$.service.test --timeout 10000 --exit",
     "lint": "tslint -p tsconfig.json",
     "dc:up": "docker-compose up --build -d",
     "dc:down": "docker-compose down"

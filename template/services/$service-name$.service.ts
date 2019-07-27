@@ -9,7 +9,7 @@ const MongoAdapter = require("moleculer-db-adapter-mongo");
 
 
 
-const articleservice: ServiceSchema = {
+const $service-name$service: ServiceSchema = {
 	/**
 	 * Name of service
 	 */
@@ -64,7 +64,7 @@ const articleservice: ServiceSchema = {
 			},
 			data: json
 		}
-		// ctx.call('famArticles.update_propagation', object);
+		// ctx.call('fam$service-name$s.update_propagation', object);
 	},
 
 	entityUpdated(json: {}, ctx: any) {
@@ -74,11 +74,11 @@ const articleservice: ServiceSchema = {
 			},
 			data: json
 		}
-		// ctx.call('famArticles.update_propagation', object);
+		// ctx.call('fam$service-name$s.update_propagation', object);
 	},
 
 	entityRemoved(json: {}, ctx: any) {
 	}
 };
 
-export = articleservice;
+export = $service-name$service;

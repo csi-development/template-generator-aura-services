@@ -24,7 +24,7 @@ export class KafkaDriver {
 	constructor() {
 		this.groupId = process.env.APP_NAME +'-'+ process.env.POSTE_ID || `service-$service-name$-${process.env.POST_ID}`;
 		this.clientId = `${this.groupId}-${process.env.POST_ID}-${uuid()}`;
-		this.service = 'articles'
+		this.service = '$service-name$'
 
 
 		try {
@@ -114,7 +114,7 @@ export class KafkaDriver {
 				eachMessage: async ({ topic, partition, message }: any) => {
 					let mess = JSON.parse(message.value.toString())
 
-					/**Filtre les message consernant les convives et ne venant pas de ce groupe de service */
+					/**Filtre les message consernant les $service-name$s et ne venant pas de ce groupe de service */
 					if (mess.headers.groupId != this.groupId && mess.headers.service == this.service) {
 
 						this.molecular_broker.logger.info(
